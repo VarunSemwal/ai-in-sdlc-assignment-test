@@ -10,7 +10,7 @@ Use whichever approved agent and tools you have.
 
 ## The scenario
 
-The scenario around it is in ops/README.md in that repository, along with the evidence packs you will need.
+The scenario around it is in ops/README.md in this repository, along with the evidence packs you will need.
 
 You have just been assigned as the senior engineer for the Invoice Approval service. It has run for 18 months as an internal tool maintained part-time by one person. In January it becomes a tier-2 service: a 24x7 on-call rotation, a published SLO, and a new integration that submits approved invoices to an external payment provider, PayEx.
 
