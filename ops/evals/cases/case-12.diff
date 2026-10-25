@@ -1,0 +1,24 @@
+diff --git a/backend/src/InvoiceApp.Api/Controllers/InvoicesController.cs b/backend/src/InvoiceApp.Api/Controllers/InvoicesController.cs
+--- a/backend/src/InvoiceApp.Api/Controllers/InvoicesController.cs
++++ b/backend/src/InvoiceApp.Api/Controllers/InvoicesController.cs
+@@ -22,17 +22,17 @@ public class InvoicesController : ApiControllerBase
+     [HttpGet]
+     public ActionResult<IReadOnlyList<Invoice>> GetAll([FromQuery] string? status)
+     {
+-        var invoices = _repository.GetAll();
++        var allInvoices = _repository.GetAll();
+ 
+         if (!string.IsNullOrEmpty(status))
+         {
+             if (!Enum.TryParse<InvoiceStatus>(status, ignoreCase: true, out var parsed))
+             {
+                 return BadRequest(new { error = $"Unknown status '{status}'." });
+             }
+ 
+-            invoices = invoices.Where(i => i.Status == parsed).ToList();
++            allInvoices = allInvoices.Where(i => i.Status == parsed).ToList();
+         }
+ 
+-        return Ok(invoices);
++        return Ok(allInvoices);
+     }

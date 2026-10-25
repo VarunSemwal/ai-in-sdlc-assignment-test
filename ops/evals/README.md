@@ -1,6 +1,6 @@
 # Review eval
 
-Ten fixed cases for measuring how well a review prompt performs on this
+Twelve fixed cases for measuring how well a review prompt performs on this
 codebase. Each case is a diff in `cases/`. Some contain a defect and some do
 not; which is which is not recorded here.
 

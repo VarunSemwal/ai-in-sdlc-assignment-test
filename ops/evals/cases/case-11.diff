@@ -1,0 +1,12 @@
+diff --git a/backend/src/InvoiceApp.Domain/ApprovalService.cs b/backend/src/InvoiceApp.Domain/ApprovalService.cs
+--- a/backend/src/InvoiceApp.Domain/ApprovalService.cs
++++ b/backend/src/InvoiceApp.Domain/ApprovalService.cs
+@@ -64,7 +64,7 @@ public class ApprovalService
+ 
+     private static void EnsurePending(Invoice invoice)
+     {
+-        if (invoice.Status != InvoiceStatus.PendingApproval)
++        if (invoice.Status == InvoiceStatus.PendingApproval)
+         {
+             throw new InvalidOperationException(
+                 $"Invoice {invoice.Id} is {invoice.Status}; only pending invoices can be decided.");

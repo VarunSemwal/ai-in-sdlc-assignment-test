@@ -1,0 +1,49 @@
+run,case,model,prompt_version,verdict,finding_summary,confidence_reported,notes
+1,case-01,Auto,v1,caught,Ids null not checked before foreach (NullReferenceException),High; Medium (2nd finding),Line 49 vs key 48. Extra finding: bypasses Handle(...) - not in key; not scored as false alarm.
+1,case-02,Auto,v1,caught,customer and status interpolated into SQL (injection),High,Line 28 and 32 named; key 27 and 31 (off by one).
+1,case-03,Auto,v1,caught,MidpointRounding.ToZero truncates discount and result,High,Lines 15-16 match.
+1,case-04,Auto,v1,correct_clean,No findings,,Clean case.
+1,case-05,Auto,v1,caught,Delete lacks RequireRole(Admin),High,Line 44 matches.
+1,case-06,Auto,v1,correct_clean,No findings,,Clean case.
+1,case-07,Auto,v1,caught,Full invoice and user session logged,High,Lines 34-36; key 34.
+1,case-08,Auto,v1,caught,Dictionary replaces ConcurrentDictionary (unsafe under concurrency),High,Line 8 matches. Also noted non-atomic Add.
+1,case-09,Auto,v1,caught,Sign out/in does not reset the in-memory data,High,Line 24 vs key 23 (off by one).
+1,case-10,Auto,v1,caught,Catch-all returns HTTP 200 completed,High,Line 35 vs key 37 (off by two); defect named correctly.
+1,case-11,Auto,v1,caught,Inverted condition in EnsurePending,High,Line 67 matches.
+1,case-12,Auto,v1,correct_clean,No findings,,Clean case.
+2,case-01,Auto,v1,caught,Ids null not checked before foreach,high,Line 49 vs key 48 (off by one).
+2,case-02,Auto,v1,caught,customer and status interpolated into SQL,High,Lines 28 and 32; key 27 and 31.
+2,case-03,Auto,v1,caught,Discount rounded toward zero then result truncated,High,Line 15 only; key 15-16. Worked example Apply(10.00m 12.36m) = 8.77m recomputed against the diff and correct.
+2,case-04,Auto,v1,correct_clean,No findings,,Clean case.
+2,case-05,Auto,v1,caught,Delete lacks RequireRole(Admin),High,Line 44 matches.
+2,case-06,Auto,v1,correct_clean,No findings,,Clean case.
+2,case-07,Auto,v1,caught,Invoice and CurrentUser logged,High,Line 34 matches.
+2,case-08,Auto,v1,caught,Dictionary replaces ConcurrentDictionary; ContainsKey then assign not atomic,High,Lines 9 and 19-24; key 8. Line off by one.
+2,case-09,Auto,v1,missed,Hedged: says sign out/in claim fails only if sign-in does not explicitly reset data,medium,RULED by owner: missed. Conditional wording does not assert the defect. Line 24 vs key 23.
+2,case-10,Auto,v1,caught,Catch-all returns HTTP 200 completed,High,Line 37 matches.
+2,case-11,Auto,v1,caught,Inverted condition in EnsurePending,high,Line 67 matches.
+2,case-12,Auto,v1,correct_clean,No findings,,Clean case.
+3,case-01,Auto,v1,caught,Ids null not checked before foreach,High; Medium (2nd finding),Line 48 matches. Extra finding: partial bulk approval - not in key.
+3,case-02,Auto,v1,caught,customer and status interpolated into SQL,High,Lines 28 and 32; key 27 and 31.
+3,case-03,Auto,v1,caught,ToZero truncates the result instead of rounding to cents,high,Lines 14-15; key 15-16. Worked example Apply(1.009m 0m) = 1.00m recomputed against the diff and correct.
+3,case-04,Auto,v1,correct_clean,No defects found,,Clean case.
+3,case-05,Auto,v1,caught,Delete lacks RequireRole(Admin),High,Line 44 matches.
+3,case-06,Auto,v1,correct_clean,No findings,,Clean case.
+3,case-07,Auto,v1,caught,Invoice and user objects logged,High,Lines 35-36; key 34.
+3,case-08,Auto,v1,caught,Dictionary replaces ConcurrentDictionary; duplicate check not atomic,high,Lines 10 and 18; key 8. Line off by two.
+3,case-09,Auto,v1,missed,Hedged: says sign out/in reset is "likely incorrect",medium,RULED by owner: missed. Hedged wording does not assert the defect. Line 26 vs key 23.
+3,case-10,Auto,v1,caught,Catch-all returns HTTP 200 completed,High,Line 35 vs key 37 (off by two).
+3,case-11,Auto,v1,caught,Inverted condition in EnsurePending,high,Line 67 matches.
+3,case-12,Auto,v1,correct_clean,No defects found,,Clean case.
+4,case-01,Auto,v2,caught,Ids null not checked before foreach,high,Line 49 vs key 48. No extra findings.
+4,case-02,Auto,v2,caught,customer and status interpolated into SQL; example injection input,High,Lines 31 and 35 vs key 27 and 31 (off by four; defect named correctly).
+4,case-03,Auto,v2,caught,ToZero drops fractional-cent discount; example 1.01 at 0.5 percent,high,Line 15 matches key range. Worked example recomputed against the diff and correct.
+4,case-04,Auto,v2,correct_clean,Claims renaming constructor parameter breaks named-argument callers,High,RULED by owner: valid source-compatibility note and not an asserted defect; not a false alarm. Repo search found no caller using repository: so nothing breaks today. Key says behavior unchanged.
+4,case-05,Auto,v2,caught,Delete lacks RequireRole(Admin),High,Line 44 matches.
+4,case-06,Auto,v2,correct_clean,No findings,,Clean case.
+4,case-07,Auto,v2,caught,Invoice and CurrentUser logged,high,Line 35 vs key 34 (off by one).
+4,case-08,Auto,v2,caught,Dictionary replaces ConcurrentDictionary; example concurrent Add,High,Line 8 matches.
+4,case-09,Auto,v2,caught,Sign out/in does not reset data; example given,high,Line 24 vs key 23. More decisive than runs 2-3 (no hedge).
+4,case-10,Auto,v2,caught,Catch-all returns HTTP 200 completed; example IOException,High,Line 35 vs key 37 (off by two).
+4,case-11,Auto,v2,caught,Inverted condition in EnsurePending,High,Line 67 matches.
+4,case-12,Auto,v2,correct_clean,No findings,,Clean case.
