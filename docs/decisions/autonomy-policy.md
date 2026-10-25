@@ -1,6 +1,6 @@
 # Autonomy policy: month-end log triage
 
-**Status:** Draft; not approved for day one. **Workflow:** month-end production-log and metric triage. **Levels:** 1 Read, 2 Propose, 3 Act with approval, 4 Act alone (Session 3, slide 11). [INC-2041](../../ops/incidents/INC-2041/README.md) and [INC-2047](../../ops/incidents/INC-2047/README.md) describe a planned deployment, not the current code.
+**Status:** Draft; not approved for day one. **Workflow:** month-end production-log and metric triage. **Levels:** 1 Read, 2 Propose, 3 Act with approval, 4 Act alone. [INC-2041](../../ops/incidents/INC-2041/README.md) and [INC-2047](../../ops/incidents/INC-2047/README.md) describe a planned deployment, not the current code.
 
 ## Task boundaries
 
