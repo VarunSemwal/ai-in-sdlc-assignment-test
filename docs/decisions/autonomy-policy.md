@@ -1,6 +1,6 @@
 # Autonomy policy: month-end log triage
 
-**Status:** Draft; not approved for day one. **Workflow:** month-end production-log and metric triage. **Levels:** 1 Read, 2 Propose, 3 Act with approval, 4 Act alone. [INC-2041](../../ops/incidents/INC-2041/README.md) and [INC-2047](../../ops/incidents/INC-2047/README.md) describe a planned deployment, not the current code.
+**Status:** Draft; day-one level and approver roles set by the owner on 2026-10-30; other launch blockers remain open. **Day-one level: Level 1 (Read) for every task, with task 2 (rank hypotheses, propose mitigations) in shadow mode.** Reason: two of the six engineers are new to the codebase, and the controls for higher levels are not yet verified. **Workflow:** month-end production-log and metric triage. **Levels:** 1 Read, 2 Propose, 3 Act with approval, 4 Act alone. [INC-2041](../../ops/incidents/INC-2041/README.md) and [INC-2047](../../ops/incidents/INC-2047/README.md) describe a planned deployment, not the current code.
 
 ## Task boundaries
 
@@ -20,7 +20,7 @@ For tasks 2 and 4: assess two pack replays and two real shadow windows. The 4-of
 
 **No level-3 promotion path:** tasks 3/6 lack a level-2 stage and evidence procedure; keep disabled pending staged path and task-specific tests. Three windows and 80% unedited proposal acceptance do not prove safe execution. Task 5 stays disabled without evidence.
 
-Service owner approves promotions in writing; SOC 2 owner co-signs level 3 (audit due in six months). Incident commander may demote one level immediately and approves level-3 actions out of hours. Name roles before enabling. Failed/lost control evidence disables the task.
+Service owner approves promotions in writing; SOC 2 owner co-signs level 3 (audit due in six months). Incident commander may demote one level immediately and approves level-3 actions out of hours. These roles were confirmed by the owner on 2026-10-30; no individual names are assigned in this document. Failed/lost control evidence disables the task.
 
 ## Review disposition
 

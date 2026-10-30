@@ -1,6 +1,6 @@
 # Risk audit: month-end log triage agent vs the lethal trifecta
 
-**Status:** Draft. **Decision:** `[OWNER DECISION]`. **Owner role:** `[OWNER DECISION: role to be named]`. **Date:** `[OWNER DECISION]`.
+**Status:** Draft, decision recorded. **Decision:** Option B, accept the risk in writing (section 4). **Owner role:** Service owner. **Date:** 2026-10-30. The decision was chosen by the owner in the session; the agent only recorded it.
 
 ## 1. Setup under audit
 
@@ -30,7 +30,9 @@
 
 ## 4. Decision
 
-`[OWNER DECISION]`: choose option A or option B below, name the owner role, and record the date.
+**Decision (2026-10-30, owner role: Service owner): Option B, accept the risk in writing.**
+
+The Service owner accepts that the triage agent may run with private data and untrusted content present, and with the external-communication leg not shown to be closed (unknown 3). The acceptance is bounded by the autonomy policy: day-one Level 1, no send, write or egress tools enabled, and no task enabled until permissions and redaction are checked (policy line 15). The acceptance lapses on any trigger below. Option A was considered and not chosen; its description is kept for the record.
 
 ### Option A: Redesign to remove one leg (external communication)
 
@@ -43,7 +45,7 @@
 - **What it means.** Run with all three legs potentially present and rely on the policy's human review and level limits.
 - **Cost.** Little build work, but the acceptance needs a named owner and a trigger for revisiting. The policy already says it does not claim the controls exist (policy "Review disposition").
 - **Residual risk.** Untrusted log content could steer an agent that holds private data and may have an outbound path. The evidence does not show that the outbound path is closed (unknown 3). The policy's level limits do not address this combination.
-- **Revisit trigger.** `[OWNER DECISION: concrete trigger(s), e.g. a write or egress tool is enabled, real customer data reaches the agent, or the rotation goes live]`.
+- **Revisit trigger (any one).** (1) Any write or egress tool is enabled for the triage agent. (2) Real customer data, not the invented packs, reaches it. (3) Redaction is shown not to run before the agent reads logs. (4) The on-call rotation goes live.
 
 ## 5. Evidence basis and limits
 
